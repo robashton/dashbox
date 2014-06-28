@@ -1,5 +1,4 @@
-var dsl = require('../index')
-  , mustache = require('../mustache')
+var dsl = require('fishyfish')
 
 module.exports = function(opts) {
   opts.installpath = "/root/grafana/grafana-1.5.4"
@@ -17,12 +16,12 @@ module.exports = function(opts) {
       return c.add({
           from: __dirname + "/runit/grafana",
           to: "/etc/service/grafana/run",
-          transform: mustache(opts)
+          transform: dsl.mustache(opts)
         })
         .add({
           from: __dirname + "/config/grafana/config.js",
           to: opts.installpath,
-          transform: mustache(opts)
+          transform: dsl.mustache(opts)
         })
     })
 }

@@ -1,4 +1,4 @@
-var dsl = require('../index')
+var dsl = require('fishyfish')
 
 module.exports = dsl("base setup")
   .from("phusion/passenger-customizable:0.9.10")

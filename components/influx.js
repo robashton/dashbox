@@ -1,5 +1,4 @@
-var dsl = require('../index')
-  , mustache = require('../mustache')
+var dsl = require('fishyfish')
 
 module.exports = function(opts) {
   return dsl("influx")
@@ -14,7 +13,7 @@ module.exports = function(opts) {
     .add({
       from: __dirname + "/config/influxdb/config.toml",
       to: "/opt/influxdb/shared/config.toml",
-      transform: mustache(opts)
+      transform: dsl.mustache(opts)
     })
   })
 }

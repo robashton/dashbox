@@ -1,4 +1,4 @@
-var dsl = require('../index')
+var dsl = require('fishyfish')
 
 module.exports = dsl()
                   .install("build-essential")

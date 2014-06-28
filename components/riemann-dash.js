@@ -1,5 +1,4 @@
-var dsl = require('../index')
-  , mustache = require('../mustache')
+var dsl = require('fishyfish')
 
 // NOTE: Half of this comes from the bash scripts on the base image
 // We really need a non version of this
@@ -13,7 +12,7 @@ module.exports = function(opts) {
     return c.add({
       from: __dirname + "/config/riemann-dash/config.rb",
       to: "/root/riemann-dash/config.rb",
-      transform: mustache(opts)
+      transform: dsl.mustache(opts)
     })
     .add({
       from: __dirname + "/runit/riemann-dash",

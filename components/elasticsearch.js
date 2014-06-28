@@ -1,5 +1,4 @@
-var dsl = require('../index')
-  , mustache = require('../mustache')
+var dsl = require('fishyfish')
 
 module.exports = function(opts) {
   opts.installpath = opts.installpath || "/opt/elasticsearch"
@@ -17,12 +16,12 @@ module.exports = function(opts) {
             return c.add({
               from: __dirname + "/runit/elasticsearch",
               to: "/etc/service/elasticsearch/run",
-              transform: mustache(opts)
+              transform: dsl.mustache(opts)
             })
             .add({
               from: __dirname + "/config/elasticsearch/elasticsearch.yml",
               to: "/opt/elasticsearch/config",
-              transform: mustache(opts)
+              transform: dsl.mustache(opts)
             })
           })
         }
