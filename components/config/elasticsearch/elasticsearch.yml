@@ -1,0 +1,2 @@
+path.data: /var/data/elasticsearch
+http.port: {{port}}
