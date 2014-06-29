@@ -5,7 +5,7 @@ var version = "0.2.5"
   , installpath = "/root/riemann/riemann-" + version
 
 module.exports = function(opts) {
-  return dsl("Riemann")
+  return dsl.module("Riemann")
   .wget({
       dir: "/root/riemann",
       from: "http://aphyr.com/riemann/" + tar })
@@ -20,7 +20,8 @@ module.exports = function(opts) {
         .add({
           from: __dirname + "/runit/riemann",
           to: "/etc/service/riemann/run",
-          transform: dsl.mustache({ installpath: installpath })
+          transform: dsl.mustache({ installpath: installpath }),
+          mode: '777'
         })
       })
     }

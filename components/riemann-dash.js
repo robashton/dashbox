@@ -3,7 +3,7 @@ var dsl = require('fishyfish')
 // NOTE: Half of this comes from the bash scripts on the base image
 // We really need a non version of this
 module.exports = function(opts) {
-  return dsl("Riemann Dash")
+  return dsl.module("Riemann Dash")
   .run("/build/ruby1.9.sh")
   .run("/build/ruby-switch --set ruby1.9.1")
   .run("/build/devheaders.sh")
@@ -16,7 +16,8 @@ module.exports = function(opts) {
     })
     .add({
       from: __dirname + "/runit/riemann-dash",
-      to: "/etc/service/riemann-dash/run"
+      to: "/etc/service/riemann-dash/run",
+      mode: '744'
     })
   })
 }
