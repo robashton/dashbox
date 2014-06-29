@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var docker = require('fishyfish')
   , base = require('./components/base')
   , build = require('./components/build')
