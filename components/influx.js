@@ -1,4 +1,4 @@
-var dsl = require('fishyfish')
+var dsl = require('teabox')
 
 module.exports = function(opts) {
   return dsl.module("influx")

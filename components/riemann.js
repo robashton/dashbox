@@ -1,4 +1,4 @@
-var dsl = require('fishyfish')
+var dsl = require('teabox')
 
 var version = "0.2.5"
   , tar = ["riemann-", version, ".tar.bz2" ].join("")

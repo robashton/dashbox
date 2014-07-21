@@ -1,4 +1,4 @@
-var dsl = require('fishyfish')
+var dsl = require('teabox')
 
 // NOTE: Half of this comes from the bash scripts on the base image
 // We really need a non version of this

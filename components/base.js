@@ -1,4 +1,4 @@
-var dsl = require('fishyfish')
+var dsl = require('teabox')
 
 module.exports = dsl.module("base setup")
   .from("phusion/passenger-customizable:0.9.10")
