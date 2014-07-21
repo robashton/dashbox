@@ -21,7 +21,7 @@ module.exports = function(opts) {
             })
             .add({
               from: __dirname + "/config/elasticsearch/elasticsearch.yml",
-              to: "/opt/elasticsearch/config",
+              to: "/opt/elasticsearch/config/elasticsearch.yml",
               transform: dsl.mustache(opts)
             })
           })

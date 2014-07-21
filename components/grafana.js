@@ -21,7 +21,7 @@ module.exports = function(opts) {
         })
         .add({
           from: __dirname + "/config/grafana/config.js",
-          to: opts.installpath,
+          to: opts.installpath + "/config.js",
           transform: dsl.mustache(opts)
         })
     })

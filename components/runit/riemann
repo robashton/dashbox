@@ -1,6 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 sv start influxdb || exit 1
+
+function create_database {
+  echo "Trying to create db"
+  RESULT=$(curl -X POST 'http://127.0.0.1:8086/db?u=root&p=root' -d '{"name": "riemann"}')
+  if [[ $RESULT == *exists* ]];
+  then
+    echo "Database created"
+  else
+    echo "Waiting for influx"
+    sleep 1
+    create_database
+  fi;
+}
+
+create_database
 exec /root/riemann/riemann-0.2.5/bin/riemann /root/riemann/riemann-0.2.5/etc/riemann.config >> /var/log/riemann.log 2>&1
-
-
-
